@@ -2,9 +2,9 @@
   "name": "higher-order-helper",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "./index.js",
   "scripts": {
-    "compile": "babel --plugins=transform-runtime --presets=es2015,stage-3  -D src -d dist",
+    "compile": "babel --plugins=transform-runtime --presets=es2015,stage-3  -D src -d .",
     "prepare": "npm run compile",
     "eslint": "eslint src --fix"
   },
