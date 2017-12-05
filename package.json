@@ -1,7 +1,7 @@
 {
   "name": "higher-order-helper",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "A higher order helper function for javascript",
   "main": "./index.js",
   "scripts": {
     "compile": "babel --plugins=transform-runtime --presets=es2015,stage-3  -D src -d .",
@@ -24,5 +24,18 @@
     "lodash.keys": "^4.2.0"
   },
   "author": "Li Meng Jun",
-  "license": "MIT"
+  "license": "MIT",
+    "author": {
+    "name": "Li Meng Jun",
+    "email": "lmjubuntu@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/Lupino/higher-order-helper/issues"
+  },
+  "homepage": "https://github.com/Lupino/higher-order-helper/issues",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lupino/higher-order-helper.git"
+  }
 }
