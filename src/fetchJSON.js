@@ -30,7 +30,7 @@ export default async function fetchJSON(url, options) {
     const data = await rsp.text();
     try {
       const parsed = JSON.parse(data);
-      return preprocess(data);
+      return preprocess(parsed);
     } catch (e) {
       throw new Error(data);
     }

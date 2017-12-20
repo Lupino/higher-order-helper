@@ -80,7 +80,7 @@ exports.default = function () {
             _data = _context.sent;
             _context.prev = 15;
             parsed = JSON.parse(_data);
-            return _context.abrupt('return', preprocess(_data));
+            return _context.abrupt('return', preprocess(parsed));
 
           case 20:
             _context.prev = 20;
