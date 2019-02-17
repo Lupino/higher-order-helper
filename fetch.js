@@ -12,6 +12,10 @@ var _stringify = require('babel-runtime/core-js/json/stringify');
 
 var _stringify2 = _interopRequireDefault(_stringify);
 
+var _objectWithoutProperties2 = require('babel-runtime/helpers/objectWithoutProperties');
+
+var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
+
 exports.default = fetch;
 
 var _isomorphicFetch = require('isomorphic-fetch');
@@ -29,7 +33,10 @@ var _formData2 = _interopRequireDefault(_formData);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function fetch(url) {
-  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+  var rawFetch = _ref.fetch,
+      options = (0, _objectWithoutProperties3.default)(_ref, ['fetch']);
 
   if (options.body) {
     options.headers = options.headers || {};
@@ -43,5 +50,6 @@ function fetch(url) {
       }
     }
   }
-  return (0, _isomorphicFetch2.default)(url, options);
+  rawFetch = rawFetch || _isomorphicFetch2.default;
+  return rawFetch(url, options);
 }

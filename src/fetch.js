@@ -2,7 +2,7 @@ import fetch_ from 'isomorphic-fetch';
 import qs from 'querystring';
 import FormData from 'form-data';
 
-export default function fetch(url, options = {}) {
+export default function fetch(url, {fetch: rawFetch, ...options} = {}) {
   if (options.body) {
     options.headers = options.headers || {};
     if (Array.isArray(options.body)) {
@@ -16,5 +16,6 @@ export default function fetch(url, options = {}) {
       }
     }
   }
-  return fetch_(url, options);
+  rawFetch = rawFetch || fetch_;
+  return rawFetch(url, options);
 }
