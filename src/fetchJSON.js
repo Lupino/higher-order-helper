@@ -19,13 +19,17 @@ function preprocess(data) {
   return data;
 }
 
-export default async function fetchJSON(url, options) {
+export default async function fetchJSON(url, options, auto_pop=True) {
   options = options || {};
   options['Accept'] = 'application/json';
   const rsp = await fetch(url, options);
   if (/application\/json/.test(rsp.headers.get('content-type'))) {
     const data = await rsp.json();
-    return preprocess(data);
+    if (auto_pop) {
+      return preprocess(data);
+    } else {
+      return data;
+    }
   } else {
     const data = await rsp.text();
     try {
