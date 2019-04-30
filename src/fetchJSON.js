@@ -19,7 +19,7 @@ function preprocess(data) {
   return data;
 }
 
-export default async function fetchJSON(url, options, auto_pop=True) {
+export default async function fetchJSON(url, options, auto_pop=true) {
   options = options || {};
   options['Accept'] = 'application/json';
   const rsp = await fetch(url, options);

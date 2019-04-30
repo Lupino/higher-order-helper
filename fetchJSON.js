@@ -46,7 +46,7 @@ function preprocess(data) {
 
 exports.default = function () {
   var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee(url, options) {
-    var auto_pop = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : True;
+    var auto_pop = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
     var rsp, data, _data, parsed;
 
