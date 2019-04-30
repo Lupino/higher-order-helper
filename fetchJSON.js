@@ -46,6 +46,8 @@ function preprocess(data) {
 
 exports.default = function () {
   var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee(url, options) {
+    var auto_pop = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : True;
+
     var rsp, data, _data, parsed;
 
     return _regenerator2.default.wrap(function _callee$(_context) {
@@ -61,7 +63,7 @@ exports.default = function () {
             rsp = _context.sent;
 
             if (!/application\/json/.test(rsp.headers.get('content-type'))) {
-              _context.next = 12;
+              _context.next = 16;
               break;
             }
 
@@ -70,29 +72,42 @@ exports.default = function () {
 
           case 8:
             data = _context.sent;
+
+            if (!auto_pop) {
+              _context.next = 13;
+              break;
+            }
+
             return _context.abrupt('return', preprocess(data));
 
-          case 12:
-            _context.next = 14;
-            return rsp.text();
+          case 13:
+            return _context.abrupt('return', data);
 
           case 14:
+            _context.next = 27;
+            break;
+
+          case 16:
+            _context.next = 18;
+            return rsp.text();
+
+          case 18:
             _data = _context.sent;
-            _context.prev = 15;
+            _context.prev = 19;
             parsed = JSON.parse(_data);
             return _context.abrupt('return', preprocess(parsed));
 
-          case 20:
-            _context.prev = 20;
-            _context.t0 = _context['catch'](15);
+          case 24:
+            _context.prev = 24;
+            _context.t0 = _context['catch'](19);
             throw new Error(_data);
 
-          case 23:
+          case 27:
           case 'end':
             return _context.stop();
         }
       }
-    }, _callee, this, [[15, 20]]);
+    }, _callee, this, [[19, 24]]);
   }));
 
   function fetchJSON(_x, _x2) {
