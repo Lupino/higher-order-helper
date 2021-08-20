@@ -1,6 +1,6 @@
 import fetch_ from 'isomorphic-fetch';
-import qs from 'querystring';
 import FormData from 'form-data';
+import {safeUrlencode} from './urlencode';
 
 export default function fetch(url, {fetch: rawFetch, ...options} = {}) {
   if (options.body) {
@@ -12,7 +12,7 @@ export default function fetch(url, {fetch: rawFetch, ...options} = {}) {
       if (!(options.body instanceof FormData)) {
         options.headers['content-type'] =
           'application/x-www-form-urlencoded;charset=UTF-8';
-        options.body = qs.stringify(options.body);
+        options.body = safeUrlencode(options.body).toString();
       }
     }
   }

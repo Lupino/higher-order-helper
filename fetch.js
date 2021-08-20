@@ -22,13 +22,11 @@ var _isomorphicFetch = require('isomorphic-fetch');
 
 var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
 
-var _querystring = require('querystring');
-
-var _querystring2 = _interopRequireDefault(_querystring);
-
 var _formData = require('form-data');
 
 var _formData2 = _interopRequireDefault(_formData);
+
+var _urlencode = require('./urlencode');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -46,7 +44,7 @@ function fetch(url) {
     } else if ((0, _typeof3.default)(options.body) === 'object') {
       if (!(options.body instanceof _formData2.default)) {
         options.headers['content-type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
-        options.body = _querystring2.default.stringify(options.body);
+        options.body = (0, _urlencode.safeUrlencode)(options.body).toString();
       }
     }
   }
