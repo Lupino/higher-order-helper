@@ -2,8 +2,14 @@ import keys from 'lodash.keys';
 import fetch from './fetch';
 
 function preprocess(data) {
+  if (!data) {
+    return data;
+  }
   if (data.err) {
     throw new Error(data.err);
+  }
+  if (data.error) {
+    throw new Error(data.error);
   }
   if (Array.isArray(data)) {
     return data;

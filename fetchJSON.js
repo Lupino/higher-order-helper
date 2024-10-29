@@ -27,8 +27,14 @@ var _fetch2 = _interopRequireDefault(_fetch);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function preprocess(data) {
+  if (!data) {
+    return data;
+  }
   if (data.err) {
     throw new Error(data.err);
+  }
+  if (data.error) {
+    throw new Error(data.error);
   }
   if (Array.isArray(data)) {
     return data;
